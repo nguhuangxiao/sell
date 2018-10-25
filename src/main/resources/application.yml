@@ -1,4 +1,4 @@
-#service≈‰÷√
+#service
 server:
   port: 8080
   tomcat:
@@ -12,7 +12,6 @@ spring:
     favicon:
       enabled: false
 
-  #ª∫¥Êœ‡πÿ
   cache:
     type: ehcache
 
