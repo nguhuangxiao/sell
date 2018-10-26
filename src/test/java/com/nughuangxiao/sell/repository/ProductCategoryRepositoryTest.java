@@ -29,8 +29,8 @@ public class ProductCategoryRepositoryTest {
     public void saveProduct() {
 
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryName("lixiaoping");
-        productCategory.setCategoryType(5);
+        productCategory.setCategoryName("haha");
+        productCategory.setCategoryType(3);
         repository.save(productCategory);
     }
 
@@ -40,6 +40,13 @@ public class ProductCategoryRepositoryTest {
         ProductCategory productCategory = repository.findById(5).get();
         productCategory.setCategoryType(66);
         repository.save(productCategory);
+
+    }
+
+    @Test
+    public void deleteProduct() {
+
+        repository.deleteById(5);
 
     }
 }
