@@ -1,11 +1,15 @@
 package com.nughuangxiao.sell.repository;
 
 import com.nughuangxiao.sell.dataobj.ProductCategory;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -28,9 +32,8 @@ public class ProductCategoryRepositoryTest {
     @Test
     public void saveProduct() {
 
-        ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryName("haha");
-        productCategory.setCategoryType(3);
+        ProductCategory productCategory = new ProductCategory("女生最嗨", 3);
+
         repository.save(productCategory);
     }
 
@@ -48,5 +51,15 @@ public class ProductCategoryRepositoryTest {
 
         repository.deleteById(5);
 
+    }
+
+    @Test
+    public void findCategoryList() {
+
+        List<Integer> list = Arrays.asList(2,3,10);
+
+        List<ProductCategory> result = repository.findByCategoryTypeIn(list);
+
+        Assert.assertNotEquals(0, result.size());
     }
 }
