@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -17,22 +19,25 @@ public class ProductInfoRepositoryTest {
 
     @Test
     public void saveTest() {
+
         ProductInfo productInfo = new ProductInfo(
-                "1",
-                "皮蛋粥",
-                100,
-                "大众点评热销",
-                "http://www.baidu.com",
-                2,
-                1
+                "3",
+                "hah",
+                new BigDecimal(2.3),
+                10,
+                "ceshi",
+                "http://baidu.com",
+                1,
+                2
         );
+
         repository.save(productInfo);
-    }
-
-    @Test
-    public void findByProductStatus() {
-
-
 
     }
+
+
+
+
+
+
 }
