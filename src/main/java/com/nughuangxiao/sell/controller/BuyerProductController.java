@@ -38,14 +38,12 @@ public class BuyerProductController {
 
         List<ProductInfo> productInfoList = productService.findUpAll(); //查询上架商品
 
-        List<Integer> categoryTypeList = new ArrayList<>();
+        List<Integer> categoryTypeIdList = new ArrayList<>();
         for (ProductInfo productInfo : productInfoList) {
-            categoryTypeList.add(productInfo.getCategoryType());
+          categoryTypeIdList.add(productInfo.getCategoryType());
         }
 
-        List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList); //查询上架商品下对应的类目
-
-        System.out.println(productCategoryList);
+        List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeIdList); //查询上架商品下对应的类目
 
 
         //数据拼装

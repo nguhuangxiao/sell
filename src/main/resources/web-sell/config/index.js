@@ -10,10 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/sell': {
+        target: 'http://localhost:8082',
+        changeOrigin: true,
+        secure: false
+      }
+    },
     // Various Dev Server settings
-    host: '127.0.0.1', // can be overwritten by process.env.HOST
-    port: 8081, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
+    host: 'localhost', // can be overwritten by process.env.HOST
+    port: 8080, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
