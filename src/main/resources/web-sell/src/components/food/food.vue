@@ -1,10 +1,13 @@
 <template>
   <transition name="move">
-    <div v-show="showFlag" class="food" ref="food">
+    <div v-show="showFlag"
+         class="food"
+         ref="food">
       <div class="food-content">
         <div class="image-header">
           <img :src="food.image">
-          <div class="back" @click="hide">
+          <div class="back"
+               @click="hide">
             <i class="icon-arrow_lift"></i>
           </div>
         </div>
@@ -15,43 +18,56 @@
             <span class="rating">好评率{{food.rating}}%</span>
           </div>
           <div class="price">
-            <span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+            <span class="now">￥{{food.price}}</span><span class="old"
+                                                          v-show="food.oldPrice">￥{{food.oldPrice}}</span>
           </div>
           <div class="cartcontrol-wrapper">
-            <cartcontrol @add="addFood" :food="food"></cartcontrol>
+            <cartcontrol @add="addFood"
+                         :food="food"></cartcontrol>
           </div>
           <transition name="fade">
-            <div @click.stop.prevent="addFirst" class="buy" v-show="!food.count || food.count===0">
+            <div @click.stop.prevent="addFirst"
+                 class="buy"
+                 v-show="!food.count || food.count === 0">
               加入购物车
             </div>
           </transition>
         </div>
         <split v-show="food.info"></split>
-        <div class="info" v-show="food.info">
+        <div class="info"
+             v-show="food.info">
           <h1 class="title">商品信息</h1>
           <p class="text">{{food.info}}</p>
         </div>
         <split></split>
         <div class="rating">
           <h1 class="title">商品评价</h1>
-          <ratingselect @select="selectRating" @toggle="toggleContent" :selectType="selectType"
-                        :onlyContent="onlyContent" :desc="desc"
+          <ratingselect @select="selectRating"
+                        @toggle="toggleContent"
+                        :selectType="selectType"
+                        :onlyContent="onlyContent"
+                        :desc="desc"
                         :ratings="food.ratings"></ratingselect>
           <div class="rating-wrapper">
             <ul v-show="food.ratings && food.ratings.length">
-              <li v-show="needShow(rating.rateType,rating.text)" v-for="rating in food.ratings"
+              <li v-show="needShow(rating.rateType, rating.text)"
+                  v-for="rating in food.ratings"
                   class="rating-item border-1px">
                 <div class="user">
                   <span class="name">{{rating.username}}</span>
-                  <img class="avatar" width="12" height="12" :src="rating.avatar">
+                  <img class="avatar"
+                       width="12"
+                       height="12"
+                       :src="rating.avatar">
                 </div>
                 <div class="time">{{rating.rateTime | formatDate}}</div>
                 <p class="text">
-                  <span :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></span>{{rating.text}}
+                  <span :class="{'icon-thumb_up' : rating.rateType === 0, 'icon-thumb_down' : rating.rateType === 1}"></span>{{rating.text}}
                 </p>
               </li>
             </ul>
-            <div class="no-rating" v-show="!food.ratings || !food.ratings.length">暂无评价</div>
+            <div class="no-rating"
+                 v-show="!food.ratings || !food.ratings.length">暂无评价</div>
           </div>
         </div>
       </div>
@@ -70,6 +86,17 @@
   const ALL = 2;
 
   export default {
+    components: {
+      cartcontrol,
+      ratingselect,
+      split
+    },
+    filters: {
+      formatDate(time) {
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm');
+      }
+    },
     props: {
       food: {
         type: Object
@@ -137,17 +164,6 @@
           this.scroll.refresh();
         });
       }
-    },
-    filters: {
-      formatDate(time) {
-        let date = new Date(time);
-        return formatDate(date, 'yyyy-MM-dd hh:mm');
-      }
-    },
-    components: {
-      cartcontrol,
-      ratingselect,
-      split
     }
   };
 </script>

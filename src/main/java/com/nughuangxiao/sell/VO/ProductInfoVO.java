@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public class ProductInfoVO {
 
     @JsonProperty("id")
-    private Integer productId;
+    private String productId;
 
     @JsonProperty("name")
     private String productName;
@@ -21,6 +21,6 @@ public class ProductInfoVO {
     private String productDescription;
 
     @JsonProperty("icon")
-    private String icon;
+    private String productIcon;
 
  }

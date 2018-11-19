@@ -12,10 +12,7 @@ import com.nughuangxiao.sell.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/buyer/product")
+@CrossOrigin(origins = {"http://localhost:8081", "null"})
 public class BuyerProductController {
 
     @Autowired
@@ -55,8 +53,8 @@ public class BuyerProductController {
             productVO.setCategoryType(productCategory.getCategoryType());
 
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
-            for(ProductInfo productInfo :  productInfoList) {
-                if(productCategory.getCategoryType().equals(productInfo.getCategoryType())){
+            for (ProductInfo productInfo :  productInfoList) {
+                if (productCategory.getCategoryType().equals(productInfo.getCategoryType())) {
 
                     ProductInfoVO productInfoVO = new ProductInfoVO();
                     BeanUtils.copyProperties(productInfo, productInfoVO);
