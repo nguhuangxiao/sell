@@ -1,13 +1,15 @@
 package com.nughuangxiao.sell.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
+@Data
 public class ProductInfoVO {
 
     @JsonProperty("id")
-    private Integer productId;
+    private String productId;
 
     @JsonProperty("name")
     private String productName;
@@ -19,6 +21,6 @@ public class ProductInfoVO {
     private String productDescription;
 
     @JsonProperty("icon")
-    private String icon;
+    private String productIcon;
 
  }

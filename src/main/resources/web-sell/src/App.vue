@@ -20,33 +20,34 @@
 
 <script type="text/ecmascript-6">
   import { urlParse } from 'common/js/util';
+  import config from 'config';
   import header from 'components/header/header.vue';
 
   //const ERR_OK = 0;
   //const debug = process.env.NODE_ENV !== 'production';
 
   export default {
-    data() {
-      return {
-        seller: {
-          id: (() => {
-            let queryParam = urlParse();
-            return queryParam.id;
-          })()
-        }
-      };
-    },
-    created() {
-      /*const url = debug ? '/api/seller' : 'http://ustbhuangyi.com/sell/api/seller';
-      this.$http.get(url + '?id=' + this.seller.id).then((response) => {
-        response = response.body;
-        if (response.errno === ERR_OK) {
-          this.seller = Object.assign({}, this.seller, response.data);
-        }
-    });*/
-    },
     components: {
       'v-header': header
+    },
+    data() {
+          return {
+            seller: {
+              id: (() => {
+                let queryParam = urlParse();
+                return queryParam.id;
+              })()
+            }
+          };
+    },
+    created() {
+          const url = config.BASE_URL +'/sell/seller/detail'
+          this.$http.get(url + '?sellId=1').then((response) => {
+            response = response.body;
+            if (response.code === 0) {
+              this.seller = Object.assign({}, this.seller, response.data);
+            }
+        });
     }
   };
 </script>
