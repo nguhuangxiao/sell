@@ -70,30 +70,30 @@
   import star from 'components/star/star';
 
   export default {
+    components: {
+      star
+    },
     props: {
-      seller: {
-        type: Object
-      }
-    },
+          seller: {
+            type: Object
+          }
+        },
     data() {
-      return {
-        detailShow: false
-      };
-    },
-    methods: {
-      showDetail() {
-        this.detailShow = true;
-      },
-      hideDetail() {
-        this.detailShow = false;
-      }
-    },
+          return {
+            detailShow: false
+          };
+        },
     created() {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
     },
-    components: {
-      star
-    }
+    methods: {
+          showDetail() {
+            this.detailShow = true;
+          },
+          hideDetail() {
+            this.detailShow = false;
+          }
+        }
   };
 </script>
 

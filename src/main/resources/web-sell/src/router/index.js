@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import goods from 'components/goods/goods';
 import ratings from 'components/ratings/ratings';
 import seller from 'components/seller/seller';
+import order from 'components/order/order';
 
 Vue.use(Router);
 
@@ -18,6 +19,9 @@ const routes = [{
 }, {
   path: '/seller',
   component: seller
+}, {
+  path: '/order',
+  component: order
 }];
 
 export default new Router({
