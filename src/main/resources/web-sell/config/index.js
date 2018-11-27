@@ -12,13 +12,13 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/sell': {
-        target: 'http://localhost:8082',  //目标接口域名
+        target: 'http://localhost:8089',  //目标接口域名
         changeOrigin: true  //是否跨域
       }
     },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8081, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
+    port: 8088, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

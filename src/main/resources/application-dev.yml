@@ -1,6 +1,6 @@
 #service
 server:
-  port: 8082
+  port: 8089
   tomcat:
     uri-encoding: utf-8
   servlet:

@@ -8,20 +8,21 @@ import order from 'components/order/order';
 Vue.use(Router);
 
 const routes = [{
-  path: '/',
-  redirect: '/goods'
+    path: '/',
+    redirect: '/goods'
 }, {
-  path: '/goods',
-  component: goods
+    path: '/goods',
+    component: goods
 }, {
-  path: '/ratings',
-  component: ratings
+    path: '/ratings',
+    component: ratings
 }, {
-  path: '/seller',
-  component: seller
+    path: '/seller',
+    component: seller
 }, {
-  path: '/order',
-  component: order
+    path: '/order',
+    name: 'Order',
+    component: order
 }];
 
 export default new Router({

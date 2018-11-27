@@ -22,7 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/buyer/product")
-@CrossOrigin(origins = {"http://localhost:8081", "null"})
+@CrossOrigin(origins = {"http://localhost:8088", "null"})
 public class BuyerProductController {
 
     @Autowired

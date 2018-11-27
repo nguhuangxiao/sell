@@ -10,43 +10,43 @@ import java.math.BigDecimal;
 @Data
 public class SellerInfo {
 
-  @Id
-  /** 卖家id **/
-  private Integer sellId;
+    @Id
+    /** 卖家id **/
+    private Integer sellId;
 
-  /** 图片 **/
-  private String sellIcon;
+    /** 图片 **/
+    private String sellIcon;
 
-  /** 卖家名称 **/
-  private String sellName;
+    /** 卖家名称 **/
+    private String sellName;
 
-  /** 公告 **/
-  private String sellNotice;
+    /** 公告 **/
+    private String sellNotice;
 
-  /** 描述 **/
-  private String sellDescription;
+    /** 描述 **/
+    private String sellDescription;
 
-  /** 服务评价 **/
-  private BigDecimal sellScore;
+    /** 服务评价 **/
+    private BigDecimal sellScore;
 
-  /** 配送费 **/
-  private BigDecimal deliveryPrice;
+    /** 配送费 **/
+    private BigDecimal deliveryPrice;
 
-  /** 最低费用 **/
-  private BigDecimal minPrice;
+    /** 最低费用 **/
+    private BigDecimal minPrice;
 
-  /** 送达时间 **/
-  private Integer deliveryTime;
+    /** 送达时间 **/
+    private Integer deliveryTime;
 
-  public SellerInfo(Integer sellId, String sellIcon, String sellName, String sellNotice, String sellDescription, BigDecimal sellScore, BigDecimal deliveryPrice, BigDecimal minPrice, Integer deliveryTime) {
-    this.sellId = sellId;
-    this.sellIcon = sellIcon;
-    this.sellName = sellName;
-    this.sellNotice = sellNotice;
-    this.sellDescription = sellDescription;
-    this.sellScore = sellScore;
-    this.deliveryPrice = deliveryPrice;
-    this.minPrice = minPrice;
-    this.deliveryTime = deliveryTime;
-  }
+    public SellerInfo(Integer sellId, String sellIcon, String sellName, String sellNotice, String sellDescription, BigDecimal sellScore, BigDecimal deliveryPrice, BigDecimal minPrice, Integer deliveryTime) {
+        this.sellId = sellId;
+        this.sellIcon = sellIcon;
+        this.sellName = sellName;
+        this.sellNotice = sellNotice;
+        this.sellDescription = sellDescription;
+        this.sellScore = sellScore;
+        this.deliveryPrice = deliveryPrice;
+        this.minPrice = minPrice;
+        this.deliveryTime = deliveryTime;
+    }
 }

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SellerInfoRepository extends JpaRepository<SellerInfo, Integer> {
 
-  /** 查询 **/
-  SellerInfo findBySellId(Integer sellId);
+    /** 查询 **/
+    SellerInfo findBySellId(Integer sellId);
 
 }
