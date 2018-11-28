@@ -35,6 +35,10 @@ public class SellerVO {
     @JsonProperty("deliveryPrice")
     private BigDecimal deliveryPrice;
 
+    /** 包装费 **/
+    @JsonProperty("packingPrice")
+    private BigDecimal packingPrice;
+
     /** 最低费用 **/
     @JsonProperty("minPrice")
     private BigDecimal minPrice;

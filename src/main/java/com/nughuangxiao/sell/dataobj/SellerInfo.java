@@ -32,13 +32,16 @@ public class SellerInfo {
     /** 配送费 **/
     private BigDecimal deliveryPrice;
 
+    /** 包装费 **/
+    private BigDecimal packingPrice;
+
     /** 最低费用 **/
     private BigDecimal minPrice;
 
     /** 送达时间 **/
     private Integer deliveryTime;
 
-    public SellerInfo(Integer sellId, String sellIcon, String sellName, String sellNotice, String sellDescription, BigDecimal sellScore, BigDecimal deliveryPrice, BigDecimal minPrice, Integer deliveryTime) {
+    public SellerInfo(Integer sellId, String sellIcon, String sellName, String sellNotice, String sellDescription, BigDecimal sellScore, BigDecimal deliveryPrice, BigDecimal packingPrice, BigDecimal minPrice, Integer deliveryTime) {
         this.sellId = sellId;
         this.sellIcon = sellIcon;
         this.sellName = sellName;
@@ -46,6 +49,7 @@ public class SellerInfo {
         this.sellDescription = sellDescription;
         this.sellScore = sellScore;
         this.deliveryPrice = deliveryPrice;
+        this.packingPrice = packingPrice;
         this.minPrice = minPrice;
         this.deliveryTime = deliveryTime;
     }
