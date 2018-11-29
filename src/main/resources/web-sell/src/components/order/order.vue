@@ -39,7 +39,7 @@
 
         <div class="totle-price">
             <div>¥{{totlePrice}}</div>
-            <div class="receiveOrder">确认支付</div>
+            <div class="receiveOrder" @click="goPay">确认支付</div>
         </div>
 
     </div>
@@ -47,7 +47,7 @@
 
 <script type="text/ecmascript-6">
 
-
+    import config from 'config';
     import index from '../../router';
 
     export default {
@@ -64,26 +64,50 @@
                 deliveryPrice: 4,
                 packingPrice: 2,
                 order: [],
+                urlParams: {},
                 detailShow: false
             };
         },
         methods: {
             reserveOrder() {
-                var num = 0;
-                var order = this.$route.params.order;
+                let num = 0;
+                let carArr = [];
+                let order = this.$route.params.order;
+                console.log(order)
                 order.forEach((item, index) => {
+                    let productObj = {};
                     item.singleTotle = item.count * item.price;
                     num += item.singleTotle;
+
+                    //购物车信息
+                    productObj.productId = item.id;
+                    productObj.productQuantity = item.count;
+                    carArr.push(productObj);
+
                 })
                 this.totlePrice = num + this.deliveryPrice + this.packingPrice;
                 this.order = order;
+
+                this.urlParams = {
+                    name: '黄潇',
+                    phone: '13317194243',
+                    address: '浙江省金华市婺城区',
+                    openId: 'SJHDA221JH213123',
+                    item: carArr
+                }
+            },
+            goPay() {
+                const url = config.BASE_URL +'/sell/buyer/order/create'
+                this.$http.post(url, this.urlParams).then((response) => {
+                    response = response.body;
+                    console.log(response);
+                });
             }
         },
         created() {
 
         },
         mounted() {
-            console.log(1)
             this.reserveOrder();
         }
 

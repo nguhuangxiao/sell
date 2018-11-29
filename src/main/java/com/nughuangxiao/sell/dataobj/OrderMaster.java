@@ -1,16 +1,23 @@
 package com.nughuangxiao.sell.dataobj;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Data
+@DynamicUpdate
 @Entity
 public class OrderMaster {
 
     @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+
     private String orderId;
 
     /** 买家名称 **/
@@ -34,14 +41,4 @@ public class OrderMaster {
     /** 支付状态 **/
     private Integer payStatus;
 
-    public OrderMaster(String orderId, String buyerName, String buyerPhone, String buyerAddress, String buyerOpenid, BigDecimal orderAmount, Integer orderStatus, Integer payStatus) {
-        this.orderId = orderId;
-        this.buyerName = buyerName;
-        this.buyerPhone = buyerPhone;
-        this.buyerAddress = buyerAddress;
-        this.buyerOpenid = buyerOpenid;
-        this.orderAmount = orderAmount;
-        this.orderStatus = orderStatus;
-        this.payStatus = payStatus;
-    }
 }

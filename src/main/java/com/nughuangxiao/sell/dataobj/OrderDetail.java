@@ -33,13 +33,4 @@ public class OrderDetail {
     /** 商品图标 **/
     private String productIcon;
 
-    public OrderDetail(String detailId, String orderId, String productId, String productName, BigDecimal productPrice, Integer productQuantity, String productIcon) {
-        this.detailId = detailId;
-        this.orderId = orderId;
-        this.productId = productId;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productQuantity = productQuantity;
-        this.productIcon = productIcon;
-    }
 }
