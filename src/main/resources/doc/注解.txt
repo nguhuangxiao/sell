@@ -1,1 +1,8 @@
 【1】RequestMapping
+
+【2】BigInteger.ZERO //常量0
+
+【3】RestController //rest 控制器
+
+【4】RequestMapping //接口地址
+    Requesting(value="/list", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)

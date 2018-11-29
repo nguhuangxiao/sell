@@ -34,6 +34,7 @@ public class SellerInfoServiceImplTest {
       "蜂鸟专送",
       new BigDecimal(4.3),
       new BigDecimal(4),
+      new BigDecimal(2),
       new BigDecimal(20),
       38
     );

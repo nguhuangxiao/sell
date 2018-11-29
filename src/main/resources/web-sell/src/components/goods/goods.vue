@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-common></v-common>
     <div class="goods">
       <div class="menu-wrapper" ref="menuWrapper">
         <ul>
@@ -49,6 +50,7 @@
 <script type="text/ecmascript-6">
   import config from 'config';
   import BScroll from 'better-scroll';
+  import common from 'components/common/common.vue';
   import shopcart from 'components/shopcart/shopcart';
   import cartcontrol from 'components/cartcontrol/cartcontrol';
   import food from 'components/food/food';
@@ -57,6 +59,7 @@
 
   export default  {
     components: {
+      'v-common': common,
       shopcart,
       cartcontrol,
       food

@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/seller")
-@CrossOrigin(origins = {"http://localhost:8081", "null"})
+@CrossOrigin(origins = {"http://localhost:8088", "null"})
 public class SellerController {
 
-  @Autowired
-  private SellerInfoService sellerInfoService;
+    @Autowired
+    private SellerInfoService sellerInfoService;
 
-  @RequestMapping(value = "/detail", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public ResultVO list (@RequestParam("sellId") Integer sellId) {
+    @RequestMapping(value = "/detail", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResultVO list (@RequestParam("sellId") Integer sellId) {
 
-    SellerInfo sellerInfo = sellerInfoService.findOne(sellId);
+        SellerInfo sellerInfo = sellerInfoService.findOne(sellId);
 
-    SellerVO sellerVO = new SellerVO();
-    BeanUtils.copyProperties(sellerInfo, sellerVO);
+        SellerVO sellerVO = new SellerVO();
+        BeanUtils.copyProperties(sellerInfo, sellerVO);
 
-    return ResultVOUtil.success(sellerVO);
-  }
+        return ResultVOUtil.success(sellerVO);
+    }
 
 }

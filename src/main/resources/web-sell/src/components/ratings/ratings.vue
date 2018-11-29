@@ -1,5 +1,8 @@
 <template>
-  <div class="ratings" ref="ratings">
+  <div>
+    <v-common></v-common>
+    <div class="ratings"
+         ref="ratings">
     <div class="ratings-content">
       <div class="overview">
         <div class="overview-left">
@@ -10,12 +13,14 @@
         <div class="overview-right">
           <div class="score-wrapper">
             <span class="title">服务态度</span>
-            <star :size="36" :score="seller.serviceScore"></star>
+            <star :size="36"
+                  :score="seller.serviceScore"></star>
             <span class="score">{{seller.serviceScore}}</span>
           </div>
           <div class="score-wrapper">
             <span class="title">商品评分</span>
-            <star :size="36" :score="seller.foodScore"></star>
+            <star :size="36"
+                  :score="seller.foodScore"></star>
             <span class="score">{{seller.foodScore}}</span>
           </div>
           <div class="delivery-wrapper">
@@ -25,24 +30,35 @@
         </div>
       </div>
       <split></split>
-      <ratingselect @select="selectRating" @toggle="toggleContent" :selectType="selectType" :onlyContent="onlyContent"
+      <ratingselect @select="selectRating"
+                    @toggle="toggleContent"
+                    :selectType="selectType"
+                    :onlyContent="onlyContent"
                     :ratings="ratings"></ratingselect>
       <div class="rating-wrapper">
         <ul>
-          <li v-for="rating in ratings" v-show="needShow(rating.rateType, rating.text)" class="rating-item">
+          <li v-for="rating in ratings"
+              v-show="needShow(rating.rateType, rating.text)"
+              class="rating-item">
             <div class="avatar">
-              <img width="28" height="28" :src="rating.avatar">
+              <img width="28"
+                   height="28"
+                   :src="rating.avatar">
             </div>
             <div class="content">
               <h1 class="name">{{rating.username}}</h1>
               <div class="star-wrapper">
-                <star :size="24" :score="rating.score"></star>
-                <span class="delivery" v-show="rating.deliveryTime">{{rating.deliveryTime}}</span>
+                <star :size="24"
+                      :score="rating.score"></star>
+                <span class="delivery"
+                      v-show="rating.deliveryTime">{{rating.deliveryTime}}</span>
               </div>
               <p class="text">{{rating.text}}</p>
-              <div class="recommend" v-show="rating.recommend && rating.recommend.length">
+              <div class="recommend"
+                   v-show="rating.recommend && rating.recommend.length">
                 <span class="icon-thumb_up"></span>
-                <span class="item" v-for="item in rating.recommend">{{item}}</span>
+                <span class="item"
+                      v-for="item in rating.recommend">{{item}}</span>
               </div>
               <div class="time">
                 {{rating.rateTime | formatDate}}
@@ -53,11 +69,13 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll';
   import {formatDate} from 'common/js/date';
+  import common from 'components/common/common.vue';
   import star from 'components/star/star';
   import ratingselect from 'components/ratingselect/ratingselect';
   import split from 'components/split/split';
@@ -67,6 +85,19 @@
   const debug = process.env.NODE_ENV !== 'production';
 
   export default {
+    name: 'RatingsRatings',
+    components: {
+      'v-common': common,
+      star,
+      split,
+      ratingselect
+    },
+    filters: {
+      formatDate(time) {
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm');
+      }
+    },
     props: {
       seller: {
         type: Object
@@ -116,17 +147,6 @@
           this.scroll.refresh();
         });
       }
-    },
-    filters: {
-      formatDate(time) {
-        let date = new Date(time);
-        return formatDate(date, 'yyyy-MM-dd hh:mm');
-      }
-    },
-    components: {
-      star,
-      split,
-      ratingselect
     }
   };
 </script>
