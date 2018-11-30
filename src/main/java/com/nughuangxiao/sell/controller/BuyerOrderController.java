@@ -1,11 +1,13 @@
 package com.nughuangxiao.sell.controller;
 
+import com.nughuangxiao.sell.VO.OrderVO;
 import com.nughuangxiao.sell.VO.ResultVO;
 import com.nughuangxiao.sell.converter.OrderFormConverterOrderDto;
 import com.nughuangxiao.sell.dto.OrderDto;
 import com.nughuangxiao.sell.form.OrderForm;
 import com.nughuangxiao.sell.service.OrderService;
 import com.nughuangxiao.sell.utils.ResultVOUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +31,10 @@ public class BuyerOrderController {
 
         OrderDto resultOrder = orderService.create(orderDto);
 
+        OrderVO orderVO = new OrderVO();
+        BeanUtils.copyProperties(resultOrder, orderVO);
 
-        return ResultVOUtil.success(resultOrder);
+        return ResultVOUtil.success(orderVO);
     }
 
 

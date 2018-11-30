@@ -6,3 +6,5 @@
 
 【4】RequestMapping //接口地址
     Requesting(value="/list", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+
+【5】Transactional //事物回退

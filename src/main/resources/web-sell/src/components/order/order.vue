@@ -72,6 +72,7 @@
             reserveOrder() {
                 let num = 0;
                 let carArr = [];
+                let sellId = this.$route.params.sellId;
                 let order = this.$route.params.order;
                 console.log(order)
                 order.forEach((item, index) => {
@@ -89,6 +90,7 @@
                 this.order = order;
 
                 this.urlParams = {
+                    sellId: sellId,
                     name: '黄潇',
                     phone: '13317194243',
                     address: '浙江省金华市婺城区',

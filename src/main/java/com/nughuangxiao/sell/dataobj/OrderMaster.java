@@ -2,10 +2,8 @@ package com.nughuangxiao.sell.dataobj;
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
@@ -15,9 +13,6 @@ import java.math.BigDecimal;
 public class OrderMaster {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-
     private String orderId;
 
     /** 买家名称 **/

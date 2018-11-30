@@ -12,6 +12,9 @@ import java.util.List;
 @Data
 public class OrderDto {
 
+    /** 商户id. */
+    private Integer sellId;
+
     /** 订单id. */
     private String orderId;
 

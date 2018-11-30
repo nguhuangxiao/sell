@@ -3,12 +3,13 @@
 
 ```sql
 create table `seller_info` (
-  `sell_id` int not null auto_increment,
+  `sell_id` bigint not null auto_increment,
   `sell_name` varchar(64) not null comment '名称',
   `sell_avatar` varchar(512) comment '卖家小图',
   `sell_notice` varchar(255) not null comment '卖家公告',
   `sell_description` varchar(64) not null comment '描述',
   `delivery_price` decimal(8,2) not null comment '配送费',
+  `packing_price` decimal(8,2) not null comment ''包装费'',
   `min_price` decimal(8,2) not null comment '最低价格',
   `sell_score` decimal(8,2) not null comment '商家评分',
   `delivery_time` int not null comment '送达时间',
@@ -74,6 +75,33 @@ create table `order_detail` (
     primary key (`detail_id`),
     key `idx_order_id` (`order_id`)
 );
+
+--买家地址库
+create table `buyer_address_book` (
+    `id` bigint(20) not null auto_increment,
+    `user_id` bigint(20) not null comment '信息所属用户',
+    `buyer_name` varchar(32) comment '买家信息',
+    `buyer_phone` varchar(32) comment '买家手机号',
+    `country` varchar(32) comment '国家',
+    `province` varchar(32) comment '省份',
+    `city` varchar(32) comment '城市',
+    `buyer_address` varchar(128) comment '详细地址',
+    `x` double(9, 6) comment '经度',
+    `y` double(9, 6) comment '纬度',
+	primary key (`id`)
+)
+--用户表
+create table `user` (
+    `id` bigint(20) not null auto_increment,
+    `name` varchar(32) comment '姓名',
+    `phone` varchar(20) comment '用户注册手机号',
+    `sex` tinyint(2) comment '性别',
+    `open_id` varchar(64) not null comment 'openid',
+    `icon` varchar(64) comment '用户头像',
+	primary key (`id`)
+)
+
+
 
 -- 卖家(登录后台使用, 卖家登录之后可能直接采用微信扫码登录，不使用账号密码)
 create table `seller_info` (
