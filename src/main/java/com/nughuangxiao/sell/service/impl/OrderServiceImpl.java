@@ -115,6 +115,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto cancel(OrderDto orderDto) {
+        //查看订单状态-已完结的订单不允许取消
+
+        //修改订单状态
+
+        //返回库存
+
+        //已支付的，退钱
         return null;
     }
 

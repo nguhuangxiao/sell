@@ -38,8 +38,11 @@
         </div>
 
         <div class="totle-price">
-            <div>¥{{totlePrice}}</div>
-            <div class="receiveOrder" @click="goPay">确认支付</div>
+            <div class="inner-price">
+                <div>¥{{totlePrice}}</div>
+                <div class="receiveOrder" @click="goPay">确认支付</div>
+            </div>
+
         </div>
 
     </div>
@@ -118,8 +121,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
     @import "../../common/stylus/mixin";
-    body{
-        background: #e3e5e6;
+    html{
+        height: 100%;
+        background: linear-gradient(to bottom, #038cfe 0%, #ffff 100%);
     }
     .order-container{
         padding 20px;
@@ -159,5 +163,32 @@
                 margin: 0 10px;
             }
         }
+    }
+    .totle-price{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0px;
+        height: 50px;
+        background: #414143;
+        color: #fff;
+        display: flex;
+        .inner-price{
+            padding 15px;
+            width: 100%;
+            display flex;
+            align-items center;
+            .receiveOrder{
+                position: absolute;
+                right: 0;
+                background: #59d178;
+                height: 100%;
+                width: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
     }
 </style>

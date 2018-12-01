@@ -4,6 +4,7 @@ import goods from 'components/goods/goods';
 import ratings from 'components/ratings/ratings';
 import seller from 'components/seller/seller';
 import order from 'components/order/order';
+import login from 'components/login/login';
 
 Vue.use(Router);
 
@@ -23,6 +24,10 @@ const routes = [{
     path: '/order',
     name: 'Order',
     component: order
+}, {
+    path: '/login',
+    name: 'Login',
+    component: login
 }];
 
 export default new Router({
