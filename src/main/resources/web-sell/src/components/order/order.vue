@@ -1,50 +1,52 @@
 <template>
     <div class="order-container">
-        <div class="choose-address">
-            选择收货地址>
-        </div>
-        <div class="estimate-info">
-            <div class="time-box">
-                <div class="estimate-time">
-                    <div>送达时间</div>
-                    <span>准时达PLU服务：超过十分钟起享现金服务</span>
+        <div class="container-inner">
+            <div class="back"> < </div>
+            <div class="choose-address">
+                选择收货地址>
+            </div>
+            <div class="estimate-info">
+                <div class="time-box">
+                    <div class="estimate-time">
+                        <div>送达时间</div>
+                        <span>准时达PLU服务：超过十分钟起享现金服务</span>
+                    </div>
+                    <div class="time">
+                        尽快送达（11:27送达）
+                    </div>
                 </div>
-                <div class="time">
-                    尽快送达（11:27送达）
+                <div class="pay-type">
+                    支付方式
+                    <div class="type-label">支付宝></div>
                 </div>
             </div>
-            <div class="pay-type">
-                支付方式
-                <div class="type-label">支付宝></div>
-            </div>
-        </div>
 
-        <div class="product-info">
-            <div class="address">米多面多（藏龙岛店）</div>
-            <div class="product" v-for="item in order">
-                <img :src="item.icon"/>
-                <span class="name">{{item.name}}</span>
-                <span class="number">x<i>{{item.count}}</i></span>
-                <div class="single-totle">¥{{item.singleTotle}}</div>
-            </div>
-            <ul class="other-cost" >
-                <li>
-                    <label>包装费</label>餐盒<span>¥{{packingPrice}}</span>
-                </li>
-                <li>
-                    <label>配送费</label>蜂鸟专送<span>¥{{deliveryPrice}}</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="totle-price">
-            <div class="inner-price">
-                <div>¥{{totlePrice}}</div>
-                <div class="receiveOrder" @click="goPay">确认支付</div>
+            <div class="product-info">
+                <div class="address">米多面多（藏龙岛店）</div>
+                <div class="product" v-for="item in order">
+                    <img :src="item.icon"/>
+                    <span class="name">{{item.name}}</span>
+                    <span class="number">x<i>{{item.count}}</i></span>
+                    <div class="single-totle">¥{{item.singleTotle}}</div>
+                </div>
+                <ul class="other-cost" >
+                    <li>
+                        <label>包装费</label>餐盒<span>¥{{packingPrice}}</span>
+                    </li>
+                    <li>
+                        <label>配送费</label>蜂鸟专送<span>¥{{deliveryPrice}}</span>
+                    </li>
+                </ul>
             </div>
 
-        </div>
+            <div class="totle-price">
+                <div class="inner-price">
+                    <div>¥{{totlePrice}}</div>
+                    <div class="receiveOrder" @click="goPay">确认支付</div>
+                </div>
 
+            </div>
+        </div>
     </div>
 </template>
 
@@ -119,14 +121,19 @@
     };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style scoped lang="stylus" rel="stylesheet/stylus">
     @import "../../common/stylus/mixin";
-    html{
-        height: 100%;
-        background: linear-gradient(to bottom, #038cfe 0%, #ffff 100%);
+    .back{
+        font-size: 20px;
+        color: #fff;
+        margin-bottom: 15px;
     }
     .order-container{
-        padding 20px;
+        background: linear-gradient(to bottom, #038cfe 0%, #ffff 100%);
+        height: 100%;
+        .container-inner{
+            padding 20px
+        }
     }
     .choose-address{
         color: #fff;

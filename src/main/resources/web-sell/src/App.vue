@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <keep-alive>
       <router-view :seller="seller"></router-view>
     </keep-alive>
