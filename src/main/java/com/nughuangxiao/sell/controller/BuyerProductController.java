@@ -21,7 +21,7 @@ import java.util.List;
  * 买家商品
  */
 @RestController
-@RequestMapping("/buyer/product")
+@RequestMapping(value = "/sell/buyer/product")
 @CrossOrigin(origins = {"http://localhost:8088", "null"})
 public class BuyerProductController {
 

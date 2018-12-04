@@ -13,7 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/buyer/order")
+@RequestMapping("/sell/buyer/order")
 @CrossOrigin(origins = {"http://localhost:8088", "null"})
 public class BuyerOrderController {
     /**

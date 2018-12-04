@@ -182,6 +182,9 @@
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixin.styl"
+  body{
+      background: #fff
+  }
   .goods
     display: flex
     position: absolute

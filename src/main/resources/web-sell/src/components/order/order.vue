@@ -104,7 +104,7 @@
                 }
             },
             goPay() {
-                const url = config.BASE_URL +'/sell/buyer/order/create'
+                const url = config.BASE_URL +'/buyer/order/create'
                 this.$http.post(url, this.urlParams).then((response) => {
                     response = response.body;
                     console.log(response);

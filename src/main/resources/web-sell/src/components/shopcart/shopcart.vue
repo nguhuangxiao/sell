@@ -189,7 +189,8 @@
             if (this.totalPrice < this.minPrice) {
               return;
             }
-            this.$router.push({ name: 'Order' , params: {sellId: '1', order: this.selectFoods }})
+            this.$router.push({ name: 'Login'})
+            //this.$router.push({ name: 'Order' , params: {sellId: '1', order: this.selectFoods }})
             //window.alert(`支付${this.totalPrice}元`);
           },
           addFood(target) {
